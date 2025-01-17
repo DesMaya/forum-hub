@@ -1,6 +1,7 @@
 package maya.estudos.ForumHub.domain.usuario;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import maya.estudos.ForumHub.domain.resposta.Resposta;
 import maya.estudos.ForumHub.domain.topico.Topico;
 import org.springframework.security.core.GrantedAuthority;
@@ -30,6 +31,15 @@ public class Usuario implements UserDetails {
     private List<Resposta> respostas = new ArrayList<>();
 
     private Boolean ativo;
+
+    public Usuario(
+            @NotBlank
+            String nome,
+
+            @NotBlank
+            String email,
+
+            String s) {}
 
 
     public void atualizar(DadosUsuarioAtualizacao dados) {
