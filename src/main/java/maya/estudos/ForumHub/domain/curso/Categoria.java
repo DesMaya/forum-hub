@@ -1,4 +1,4 @@
-package maya.estudos.ForumHub.domain.topico;
+package maya.estudos.ForumHub.domain.curso;
 
 public enum Categoria {
     PROGRAMACAO,
