@@ -1,5 +1,7 @@
 package maya.estudos.ForumHub.domain.topico;
 
+import maya.estudos.ForumHub.domain.resposta.DadosRespostaResponse;
+
 import java.util.List;
 
 public record DadosTopicoDetalhado(

@@ -2,6 +2,7 @@ package maya.estudos.ForumHub.domain.topico;
 
 import jakarta.persistence.*;
 import maya.estudos.ForumHub.domain.curso.Curso;
+import maya.estudos.ForumHub.domain.resposta.DadosRespostaResponse;
 import maya.estudos.ForumHub.domain.resposta.Resposta;
 import maya.estudos.ForumHub.domain.usuario.Usuario;
 
@@ -59,6 +60,17 @@ public class Topico {
 
 
     // Construtores
+    public Topico(DadosTopicoCadastro cadastro, Curso curso, Usuario autor) {
+        this.titulo = cadastro.titulo();
+        this.mensagem = cadastro.mensagem();
+        this.dataCriacao = LocalDateTime.now();
+        this.status = StatusTopico.NAO_RESPONDIDO;
+        this.curso = curso;
+        this.autor = autor;
+    }
+
+    public Topico() {}
+
     public Topico(Long id, String titulo, String mensagem, LocalDateTime dataCriacao, StatusTopico status, Usuario autor, Curso curso, List<Resposta> respostas) {
         this.id = id;
         this.titulo = titulo;
@@ -70,71 +82,34 @@ public class Topico {
         this.respostas = respostas;
     }
 
-    public Topico() {}
 
-
-// Getters and Setters
+    // Getters e Setters
     public Long getId() {
         return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
     }
 
     public String getTitulo() {
         return titulo;
     }
 
-    public void setTitulo(String titulo) {
-        this.titulo = titulo;
-    }
-
     public String getMensagem() {
         return mensagem;
-    }
-
-    public void setMensagem(String mensagem) {
-        this.mensagem = mensagem;
     }
 
     public LocalDateTime getDataCriacao() {
         return dataCriacao;
     }
 
-    public void setDataCriacao(LocalDateTime dataCriacao) {
-        this.dataCriacao = dataCriacao;
-    }
-
     public StatusTopico getStatus() {
         return status;
-    }
-
-    public void setStatus(StatusTopico status) {
-        this.status = status;
     }
 
     public Usuario getAutor() {
         return autor;
     }
 
-    public void setAutor(Usuario autor) {
-        this.autor = autor;
-    }
-
     public Curso getCurso() {
         return curso;
     }
 
-    public void setCurso(Curso curso) {
-        this.curso = curso;
-    }
-
-    public List<Resposta> getRespostas() {
-        return respostas;
-    }
-
-    public void setRespostas(List<Resposta> respostas) {
-        this.respostas = respostas;
-    }
 }
