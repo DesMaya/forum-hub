@@ -1,7 +1,6 @@
 package maya.estudos.ForumHub.domain.topico;
 
 import jakarta.persistence.*;
-import lombok.EqualsAndHashCode;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -9,7 +8,6 @@ import java.util.List;
 
 @Table(name = "topicos")
 @Entity(name = "Topico")
-@EqualsAndHashCode(of = "id")
 public class Topico {
 
     @Id
@@ -53,7 +51,6 @@ public class Topico {
     public void setStatus(StatusTopico statusTopico) {
         this.status = statusTopico;
     }
-
 
 
     public Topico(Long id, String titulo, String mensagem, LocalDateTime dataCriacao, StatusTopico status, Usuario autor, Curso curso, List<Resposta> respostas) {
