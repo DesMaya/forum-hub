@@ -1,6 +1,9 @@
 package maya.estudos.ForumHub.domain.topico;
 
 import jakarta.persistence.*;
+import maya.estudos.ForumHub.domain.curso.Curso;
+import maya.estudos.ForumHub.domain.resposta.Resposta;
+import maya.estudos.ForumHub.domain.usuario.Usuario;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
@@ -33,6 +36,7 @@ public class Topico {
     private List<Resposta> respostas = new ArrayList<>();
 
 
+
     public List<DadosRespostaResponse> getRespostas() {
         return respostas.stream().map(DadosRespostaResponse::new).toList();
     }
@@ -53,6 +57,8 @@ public class Topico {
     }
 
 
+
+    // Construtores
     public Topico(Long id, String titulo, String mensagem, LocalDateTime dataCriacao, StatusTopico status, Usuario autor, Curso curso, List<Resposta> respostas) {
         this.id = id;
         this.titulo = titulo;
@@ -66,6 +72,8 @@ public class Topico {
 
     public Topico() {}
 
+
+// Getters and Setters
     public Long getId() {
         return id;
     }
